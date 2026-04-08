@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q4 Drill 2</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: rgb(144, 144, 144);
+        }
+        		p{
+			text-align: center; size: 30px
+		}
+
+		div.background {
+			background: url(whitedots.jpg) repeat;
+			border: 2px solid rgb(248, 141, 2);
+		}
+		div.transbox{
+			margin: 30px;
+			background-color: background-color: rgba(255, 255, 255, 0.6);
+			border: 1px solid black;
+		}
+		div.transbox p {
+ 			margin: 5%;
+ 			font-weight: bold;
+ 			color: #ed6700;
+ 		}
+
+    </style>
+</head>
+
+<body>
+
+    <div class="container text-center mt-5">
+        <div class="shown">
+    	<div class="background">
+
+            <h1>Heat Index Checker</h1>
+            <p>
+                Note: Input the temperature and humidity, then click check to see the heat index and it's status.
+            </p>
+            <br><br>
+            <input type="Number" id="temperature"placeholder="Input Current Temperature [°C"]>
+            <br><br>
+            <input type="Number" id="humidity"  placeholder="Input Humidity Percentage">
+            <br><br>
+            <button onclick="compute() class="form-control" style="background-color: #f58f0a; color: #060100; font-weight: italic;">COMPUTE</button>
+        </div>
+        <br>
+        <br>
+    </div>
+
+    <script>
+        function compute(){
+            var temperature = parseInt(document.getElementById("temperature").value);
+            var humidity = parseInt(document.getElementById("humidity").value);
+
+            let heatindex = temperature+(0.33 * humidity) -4;
+
+            switch(true){
+                case (heatindex <= 27):
+                    alert("Comfortable/Cool");
+                    break;
+                case (heatindex >= 28 && heatindex <= 32):
+                    alert("Warm");
+                    break;
+                case (heatindex >= 33 && heatindex <= 37):
+                    alert("Hot");
+                    break;
+                case (heatindex >= 38 && heatindex <= 41):
+                    alert("Very Hot/Cautio");
+                    break;
+                case (heatindex >= 42):
+                    alert("Extreme Heat/Danger");
+                    break;
+                default:
+                    alert("Invalid Results");
+            }
+
+        }
+    </script>
+
+</body>
+</html>
